@@ -1,0 +1,59 @@
+@charset "utf-8";
+/* CSS Document */
+.ex_zoom {
+    width: 400px;
+    height: 400px;
+}
+
+.ex_zoom .ex_zoom_img_box {
+    background: #eee;
+}
+
+.ex_zoom .ex_zoom_img_box span {
+    background: url(whitebg.png) repeat;
+}
+
+.ex_zoom .ex_zoom_nav {
+    left: 25px;
+    margin-top: 10px;
+}
+
+.ex_zoom .ex_zoom_nav span {
+    border: 1px solid #ddd;
+}
+
+.ex_zoom .ex_zoom_nav span.current {
+    border: 1px solid #f60;
+}
+
+.ex_zoom .ex_zoom_btn {
+    width: 400px;
+    position: relative;
+    margin: 0;
+}
+
+.ex_zoom .ex_zoom_btn a {
+    display: block;
+    width: 15px;
+    border: 1px solid #ddd;
+    height: 60px;
+    line-height: 60px;
+    background: #eee;
+    text-align: center;
+    font-size: 18px;
+    position: absolute;
+    left: 0;
+    top: -62px;
+    text-decoration: none;
+    color: #999;
+}
+
+.ex_zoom .ex_zoom_btn a.ex_zoom_next_btn {
+    left: auto;
+    right: 0;
+}
+
+.ex_zoom .ex_zoom_btn a:hover {
+    background: #ccc;
+    color: #777;
+}
