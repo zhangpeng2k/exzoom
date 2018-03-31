@@ -16,14 +16,25 @@
 .ex_zoom .ex_zoom_nav {
     left: 25px;
     margin-top: 10px;
+    overflow: hidden;
+    position: relative;
 }
 
 .ex_zoom .ex_zoom_nav span {
     border: 1px solid #ddd;
+    float: left;
+    overflow: hidden;
+    position: relative;
 }
 
 .ex_zoom .ex_zoom_nav span.current {
     border: 1px solid #f60;
+}
+
+.ex_zoom .ex_zoom_nav img {
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
 }
 
 .ex_zoom .ex_zoom_btn {
