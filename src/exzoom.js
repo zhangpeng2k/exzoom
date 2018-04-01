@@ -1,8 +1,8 @@
 ;(function ($, window) {
 
     var defaults = {
-        "box_ele": "#ex_zoom .ex_zoom_img_box",
-        "nav_ele": "#ex_zoom .ex_zoom_nav",
+        "box_ele": "#exzoom .exzoom_img_box",
+        "nav_ele": "#exzoom .exzoom_nav",
         "box_width": 400,//宽度,该版本中请把宽高填写成一样
         "box_height": 400,//高度,该版本中请把宽高填写成一样
         "nav_width": 60,//列表每个宽度,该版本中请把宽高填写成一样
@@ -11,14 +11,14 @@
         "nav_item_num": 5,//列表显示个数
         "nav_current_img_class": "current",//当前图片,
         "nav_border": 1,//列表边框，没有边框填写0，边框在css中修改
-        "prev_btn": "#ex_zoom_prev_btn",//导航上一张图片
-        "next_btn": "#ex_zoom_next_btn",//导航下一张图片
+        "prev_btn": "#exzoom .exzoom_prev_btn",//导航上一张图片
+        "next_btn": "#exzoom .exzoom_next_btn",//导航下一张图片
     };
 
     var g = {};//全局变量
 
     $.fn.extend({
-        "ex_zoom": function (options) {
+        "exzoom": function (options) {
             var opts = $.extend({}, defaults, options);
 
             g.box_ele = $(opts.box_ele);
@@ -104,10 +104,10 @@
 
             //大图和预览区域部分
             g.box_ele.append("<div style='position:relative;'><b style='display:block;'>" +
-                "<img style='display:block;' src='' class='ex_zoom_main_img'/></b>" +
+                "<img src='' class='exzoom_main_img'/></b>" +
                 "<span style='position:absolute;left:0;top:0;display:none;z-index:5;'></span>" +
-                "</div><p style='position:absolute;overflow:hidden;top:0;display:none;'>" +
-                "<img style='max-width:none;max-height:none;position:relative;left:0;top:0;' src='' /></p>");
+                "</div><p class='exzoom_preview' style='top:0;display:none;'>" +
+                "<img style='max-width:none;max-height:none;left:0;top:0;' src='' /></p>");
 
             g.zoom_zone = g.box_ele.find("span");
             g.box_ele_img = g.box_ele.find("b img");

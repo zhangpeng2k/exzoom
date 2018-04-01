@@ -1,49 +1,63 @@
 @charset "utf-8";
 /* CSS Document */
-.ex_zoom {
+.exzoom {
     width: 400px;
     height: 400px;
 }
 
-.ex_zoom .ex_zoom_img_box {
+.exzoom .exzoom_img_box {
     background: #eee;
 }
 
-.ex_zoom .ex_zoom_img_box span {
+.exzoom .exzoom_img_box .exzoom_main_img {
+    display: block;
+}
+
+.exzoom .exzoom_img_box span {
     background: url(whitebg.png) repeat;
 }
 
-.ex_zoom .ex_zoom_nav {
+.exzoom .exzoom_preview {
+    margin: 0;
+    position: absolute;
+    overflow: hidden;
+}
+
+.exzoom .exzoom_preview img {
+    position: relative;
+}
+
+.exzoom .exzoom_nav {
     left: 25px;
     margin-top: 10px;
     overflow: hidden;
     position: relative;
 }
 
-.ex_zoom .ex_zoom_nav span {
+.exzoom .exzoom_nav span {
     border: 1px solid #ddd;
     float: left;
     overflow: hidden;
     position: relative;
 }
 
-.ex_zoom .ex_zoom_nav span.current {
+.exzoom .exzoom_nav span.current {
     border: 1px solid #f60;
 }
 
-.ex_zoom .ex_zoom_nav img {
+.exzoom .exzoom_nav img {
     max-width: 100%;
     max-height: 100%;
     position: relative;
 }
 
-.ex_zoom .ex_zoom_btn {
+.exzoom .exzoom_btn {
     width: 400px;
     position: relative;
     margin: 0;
 }
 
-.ex_zoom .ex_zoom_btn a {
+.exzoom .exzoom_btn a {
     display: block;
     width: 15px;
     border: 1px solid #ddd;
@@ -59,12 +73,12 @@
     color: #999;
 }
 
-.ex_zoom .ex_zoom_btn a.ex_zoom_next_btn {
+.exzoom .exzoom_btn a.exzoom_next_btn {
     left: auto;
     right: 0;
 }
 
-.ex_zoom .ex_zoom_btn a:hover {
+.exzoom .exzoom_btn a:hover {
     background: #ccc;
     color: #777;
 }

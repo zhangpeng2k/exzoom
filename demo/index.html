@@ -10,20 +10,15 @@
     <meta name="copyright" content=""/>
 
     <!--<script src="js/jquery-1.9.1.min.js"></script>-->
-
     <script src="jquery-3.3.1.min.js"></script>
-
-
-    <script src="../src/ex_zoom.js"></script>
-
-    <link href="../src/ex_zoom.css" rel="stylesheet" type="text/css"/>
-
+    <script src="../src/exzoom.js"></script>
+    <link href="../src/exzoom.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body>
-<div class="ex_zoom" id="ex_zoom">
+<div class="exzoom" id="exzoom">
     <!--大图区域-->
-    <div class="ex_zoom_img_box">
+    <div class="exzoom_img_box">
         <img src="images/photos/img01.png"/>
         <img src="images/photos/img02.png"/>
         <img src="images/photos/img03.png"/>
@@ -35,31 +30,19 @@
         <img src="images/photos/img09.png"/>
     </div>
     <!--缩略图导航-->
-    <div class="ex_zoom_nav"></div>
+    <div class="exzoom_nav"></div>
     <!--控制按钮-->
-    <p class="ex_zoom_btn">
-        <a href="javascript:void(0);" class="ex_zoom_prev_btn"> < </a>
-        <a href="javascript:void(0);" class="ex_zoom_next_btn"> > </a>
+    <p class="exzoom_btn">
+        <a href="javascript:void(0);" class="exzoom_prev_btn"> < </a>
+        <a href="javascript:void(0);" class="exzoom_next_btn"> > </a>
     </p>
 </div>
 
 <script type="text/javascript">
     // $(document).ready(function () {
-    var ex = $().ex_zoom({
-        "box_ele": "#ex_zoom .ex_zoom_img_box",
-        "nav_ele": "#ex_zoom .ex_zoom_nav",
-        "box_width": 400,//宽度,该版本中请把宽高填写成一样
-        "box_height": 400,//高度,该版本中请把宽高填写成一样
-        "nav_width": 60,//列表每个宽度,该版本中请把宽高填写成一样
-        "nav_height": 60,//列表每个高度,该版本中请把宽高填写成一样
-        "nav_item_margin": 7,//列表间隔
-        "nav_item_num": 5,//列表显示个数
-        "nav_current_img_class": "current",//当前图片,
-        "nav_border": 1,//列表边框，没有边框填写0，边框在css中修改
-        "prev_btn": "#ex_zoom .ex_zoom_prev_btn",
-        "next_btn": "#ex_zoom .ex_zoom_next_btn"
-    });//方法调用，务必在加载完后执行
+    var ex = $().exzoom();//方法调用，务必在加载完后执行
     // });
 </script>
+
 </body>
 </html>
