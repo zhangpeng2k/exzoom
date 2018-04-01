@@ -21,22 +21,22 @@
 </head>
 
 <body>
-<p>欢迎使用常用商品详情页商品放大镜效果，兼容IE6及以上版本</p>
-<p style="padding-bottom:50px;">图片标签上请务必注意width和height的值，这是必要的值，图片随意形状，随意大小，但必须填写该两个值，图片个数大于1就行，数量不固定</p>
-<!--页面必要代码,img标签上请务必带上图片真实尺寸px-->
 <div class="ex_zoom" id="ex_zoom">
+    <!--大图区域-->
     <div class="ex_zoom_img_box">
-        <img src="images/photos/img01.png" width="270" height="180"/>
-        <img src="images/photos/img02.png" width="320" height="735"/>
-        <img src="images/photos/img03.png" width="430" height="430"/>
-        <img src="images/photos/img04.png" width="290" height="290"/>
-        <img src="images/photos/img05.png" width="786" height="525"/>
-        <img src="images/photos/img06.png" width="300" height="300"/>
-        <img src="images/photos/img07.png" width="200" height="200"/>
-        <img src="images/photos/img08.png" width="810" height="582"/>
-        <img src="images/photos/img09.png" width="1920" height="900"/>
+        <img src="images/photos/img01.png"/>
+        <img src="images/photos/img02.png"/>
+        <img src="images/photos/img03.png"/>
+        <img src="images/photos/img04.png"/>
+        <img src="images/photos/img05.png"/>
+        <img src="images/photos/img06.png"/>
+        <img src="images/photos/img07.png"/>
+        <img src="images/photos/img08.png"/>
+        <img src="images/photos/img09.png"/>
     </div>
-    <div class="ex_zoom_nav"></div><!--缩略图导航-->
+    <!--缩略图导航-->
+    <div class="ex_zoom_nav"></div>
+    <!--控制按钮-->
     <p class="ex_zoom_btn">
         <a href="javascript:void(0);" class="ex_zoom_prev_btn"> < </a>
         <a href="javascript:void(0);" class="ex_zoom_next_btn"> > </a>
@@ -44,23 +44,22 @@
 </div>
 
 <script type="text/javascript">
-        var ex = null;
-        // $(document).ready(function () {
-            ex = $().ex_zoom({
-                "box_ele": "#ex_zoom .ex_zoom_img_box",
-                "nav_ele": "#ex_zoom .ex_zoom_nav",
-                "box_width": 400,//宽度,该版本中请把宽高填写成一样
-                "box_height": 400,//高度,该版本中请把宽高填写成一样
-                "nav_width": 60,//列表每个宽度,该版本中请把宽高填写成一样
-                "nav_height": 60,//列表每个高度,该版本中请把宽高填写成一样
-                "nav_item_margin": 7,//列表间隔
-                "nav_item_num": 5,//列表显示个数
-                "nav_current_img_class": "current",//当前图片,
-                "nav_border": 1,//列表边框，没有边框填写0，边框在css中修改
-                "prev_btn": "#ex_zoom .ex_zoom_prev_btn",
-                "next_btn": "#ex_zoom .ex_zoom_next_btn"
-            });//方法调用，务必在加载完后执行
-        // });
-    </script>
+    // $(document).ready(function () {
+    var ex = $().ex_zoom({
+        "box_ele": "#ex_zoom .ex_zoom_img_box",
+        "nav_ele": "#ex_zoom .ex_zoom_nav",
+        "box_width": 400,//宽度,该版本中请把宽高填写成一样
+        "box_height": 400,//高度,该版本中请把宽高填写成一样
+        "nav_width": 60,//列表每个宽度,该版本中请把宽高填写成一样
+        "nav_height": 60,//列表每个高度,该版本中请把宽高填写成一样
+        "nav_item_margin": 7,//列表间隔
+        "nav_item_num": 5,//列表显示个数
+        "nav_current_img_class": "current",//当前图片,
+        "nav_border": 1,//列表边框，没有边框填写0，边框在css中修改
+        "prev_btn": "#ex_zoom .ex_zoom_prev_btn",
+        "next_btn": "#ex_zoom .ex_zoom_next_btn"
+    });//方法调用，务必在加载完后执行
+    // });
+</script>
 </body>
 </html>
