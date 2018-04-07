@@ -1,8 +1,6 @@
 @charset "utf-8";
-/* CSS Document */
 .exzoom {
-    width: 400px;
-    height: 400px;
+   /*overflow: hidden;*/
 }
 
 .exzoom .exzoom_img_box {
@@ -21,6 +19,7 @@
     margin: 0;
     position: absolute;
     overflow: hidden;
+    z-index: 999;
 }
 
 .exzoom .exzoom_preview img {
@@ -52,7 +51,7 @@
 }
 
 .exzoom .exzoom_btn {
-    width: 400px;
+    /*width: 400px;*/
     position: relative;
     margin: 0;
 }

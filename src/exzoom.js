@@ -3,8 +3,6 @@
     var defaults = {
         "box_ele": "#exzoom .exzoom_img_box",
         "nav_ele": "#exzoom .exzoom_nav",
-        "box_width": 400,//宽度,该版本中请把宽高填写成一样
-        "box_height": 400,//高度,该版本中请把宽高填写成一样
         "nav_width": 60,//列表每个宽度,该版本中请把宽高填写成一样
         "nav_height": 60,//列表每个高度,该版本中请把宽高填写成一样
         "nav_item_margin": 7,//列表间隔
@@ -24,8 +22,7 @@
             g.box_ele = $(opts.box_ele);
             g.nav_ele = $(opts.nav_ele);
             g.nav_current_img_class = opts.nav_current_img_class;
-            g.box_width = opts.box_width;
-            g.box_height = opts.box_height;
+            g.box_width = g.box_height = g.box_ele.parent().width();
             g.nav_width = opts.nav_width;
             g.nav_height = opts.nav_height;
             g.nav_border = opts.nav_border;
@@ -39,7 +36,8 @@
             g.prev_btn = $(opts.prev_btn);//缩略图导航上一张按钮
             g.move_index = 0;//缩略图导航索引
 
-            g.nav_ele.append("<p style='position:absolute;left:0;top:0;margin: 0'></p>");
+
+            g.nav_ele.append("<p id='nav_ele_inner' style='position:absolute;left:0;top:0;margin: 0'></p>");
             g.nav_ele_inner = g.nav_ele.find("p");
 
             for (var i = 0; i < g.img_num; i++) {
@@ -91,7 +89,7 @@
             g.nav_ele_span.eq(g.img_index).addClass(g.nav_current_img_class);
             g.nav_ele.css({
                 "height": g.nav_height_with_border + "px",
-                "width": g.nav_ele_width + "px",
+                "width": g.box_width - 25 + "px",
             });
             g.nav_ele_inner.css({
                 "width": g.nav_ele_inner_width + "px"
