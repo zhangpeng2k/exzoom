@@ -1,9 +1,7 @@
-# exzoom
-jquery 电商网站放大镜
+# exzoom 是一个 jquery 放大镜插件
 
-最初来源于一个未知作者的代码，但是他的代码看起来很糟糕，我重构了
+# 使用方法:
+* 初始化: $("#exzoom").exzoom();
+* 初始化后可以设置大图: $("#exzoom").exzoom("setImg", "http://www.jb51.net/images/logo.gif") 
 
-
-# TODO
-* 实现自动播放
-* 实现直接设置大图 src 的方法
+**代码最初来源于一个未知作者，但是他的代码看起来很糟糕，我重构了代码并增强了功能**
