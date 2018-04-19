@@ -1,8 +1,9 @@
 ;(function ($, window) {
 
     var defaults = {
-        "box_ele": "#exzoom .exzoom_img_box",
-        "nav_ele": "#exzoom .exzoom_nav",
+        "ele": "#exzoom",
+        "box_ele": null,
+        "nav_ele": null,
         "nav_width": 60,//列表每个宽度,该版本中请把宽高填写成一样
         "nav_height": 60,//列表每个高度,该版本中请把宽高填写成一样
         "nav_item_margin": 7,//列表间隔
@@ -15,12 +16,12 @@
 
     var g = {};//全局变量
 
-    $.fn.extend({
-        "exzoom": function (options) {
+    var methods = {
+        init: function (options) {
             var opts = $.extend({}, defaults, options);
 
-            g.box_ele = $(opts.box_ele);
-            g.nav_ele = $(opts.nav_ele);
+            g.box_ele = $(opts.ele).find(".exzoom_img_box");
+            g.nav_ele = $(opts.ele).find(".exzoom_nav");
             g.nav_current_img_class = opts.nav_current_img_class;
             g.box_width = g.box_height = g.box_ele.parent().width();
             g.nav_width = opts.nav_width;
@@ -32,10 +33,9 @@
             g.img_num = g.images.length;
             g.img_index = 0;
             g.img_arr = [];
-            g.next_btn = $(opts.next_btn);//缩略图导航下一张按钮
-            g.prev_btn = $(opts.prev_btn);//缩略图导航上一张按钮
+            g.prev_btn = $(opts.ele).find(".exzoom_prev_btn");//缩略图导航上一张按钮
+            g.next_btn = $(opts.ele).find(".exzoom_next_btn");//缩略图导航下一张按钮
             g.move_index = 0;//缩略图导航索引
-
 
             g.nav_ele.append("<p id='nav_ele_inner' style='position:absolute;left:0;top:0;margin: 0'></p>");
             g.nav_ele_inner = g.nav_ele.find("p");
@@ -186,7 +186,33 @@
                 preview_img();
             });
         },
-    })
+        prev: function () {             //上一张图片
+            move_left()
+
+        },
+        next: function () {            //下一张图片
+            move_right();
+        },
+        set_img: function () {            //设置大图
+            //要修改 preview_img
+        },
+    };
+
+    $.fn.extend({
+        "exzoom": function (method, options) {
+            // 方法调用
+            if (arguments.length === 0 || (typeof method === 'object' && !options)) {
+                methods.init.apply(this, arguments);
+            } else if (methods[method]) {
+                methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
+            } else {
+                $.error('Method ' + method + 'does not exist on jQuery.exzomm');
+            }
+
+            //todo 这里不对,不能链式调用
+            return $(this);
+        }
+    });
 
 
     /**
