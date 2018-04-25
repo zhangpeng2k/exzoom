@@ -1,6 +1,6 @@
 @charset "utf-8";
 .exzoom {
-   /*overflow: hidden;*/
+    /*overflow: hidden;*/
 }
 
 .exzoom .exzoom_img_box {
@@ -20,6 +20,7 @@
     position: absolute;
     overflow: hidden;
     z-index: 999;
+    background-color: #fff;
 }
 
 .exzoom .exzoom_preview img {

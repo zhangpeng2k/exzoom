@@ -1,5 +1,7 @@
 # exzoom 是一个 jquery 放大镜插件
 
+![DEMO]("https://github.com/weihaipy/exzoom/demo/demo.png" "DEMO")
+
 # 使用方法:
 * 初始化: 
 ```javascript
