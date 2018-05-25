@@ -1,5 +1,5 @@
 ;(function ($, window) {
-    var ele = null,
+    let ele = null,
         boxEle = null,
         boxWidth = null,
         boxHeight = null,
@@ -34,9 +34,9 @@
         };
 
 
-    var methods = {
+    let methods = {
         init: function (options) {
-            var opts = $.extend({}, defaults, options);
+            let opts = $.extend({}, defaults, options);
 
             ele = this;
             boxEle = ele.find(".exzoom_img_box");
@@ -59,7 +59,7 @@
             navEle.append("<p class='nav_ele_inner' style='position:absolute;left:0;top:0;margin: 0'></p>");
             navEleInner = navEle.find("p");
 
-            for (var i = 0; i < imgNum; i++) {
+            for (let i = 0; i < imgNum; i++) {
                 imgArr[i] = copute_image_prop(images.eq(i));
             }
             images.remove();
@@ -95,7 +95,7 @@
             zoomZone = boxEle.find("span");
             mainImg = boxEle.find(".exzoom_main_img");
             mainImgOuter = boxEle.find("div");
-            previewBox = boxEle.find("p");
+            previewBox = boxEle.find(".exzoom_preview");
             previewBoxImg = boxEle.find(".exzoom_preview_img");
 
             boxEle.css({
@@ -120,13 +120,13 @@
              moveRight();
          },*/
         setImg: function () {            //设置大图
-            var url = arguments[0];
+            let url = arguments[0];
 
-            getImageWidth(url, function (width, height) {
+            getImageSize(url, function (width, height) {
                 previewBoxImg.attr("src", url);
                 mainImg.attr("src", url);
 
-                var image_prop = copute_image_prop(url, width, height);
+                let image_prop = copute_image_prop(url, width, height);
                 previewImg(image_prop);
             });
         },
@@ -154,16 +154,25 @@
      * 绑定事件
      */
     function bindingEvent() {
-        //进入进入大图区域
-        mainImgOuter.on("mouseenter", function () {
+        //停止自动播放
+        ele.on("mouseenter", function () {
             window.clearInterval(autoPlayInterval);//停止自动播放
+        });
+
+        //恢复自动播放
+        ele.on("mouseleave", function () {
+            autoPlay();//恢复自动播放
+        });
+
+        //进入大图区域
+        mainImgOuter.on("mouseenter", function () {
             zoomZone.css("display", "block");
             previewBox.css("display", "block");
         });
 
         //在大图区域移动
         mainImgOuter.on("mousemove", function (e) {
-            var width_limit = zoomZone.width() / 2,
+            let width_limit = zoomZone.width() / 2,
                 max_X = mainImgOuter.width() - width_limit,
                 max_Y = mainImgOuter.height() - width_limit,
                 current_X = e.pageX - mainImgOuter.offset().left,
@@ -193,19 +202,8 @@
 
         //离开大图区域
         mainImgOuter.on("mouseleave", function () {
-            autoPlay();//恢复自动播放
             zoomZone.css("display", "none");
             previewBox.css("display", "none");
-        });
-
-
-        //进入缩略图区域停止自动播放
-        navEle.on("mouseenter", function () {
-            window.clearInterval(autoPlayInterval);
-        });
-        //离开缩略图区域恢复自动播放
-        navEle.on("mouseleave", function () {
-            autoPlay();
         });
 
         //缩略图导航
@@ -237,17 +235,16 @@
      * 导航向右
      */
     function moveRight() {
-        console.log(66);
         if (imgNum <= g.navItemNum) {
             imgIndex++;
             if (imgIndex >= imgNum) {
                 imgIndex = imgNum - 1;
             }
             navEleSpan.eq(imgIndex).addClass(navHightClass).siblings().removeClass(navHightClass);
-            var image_prop = copute_image_prop(imgArr[imgIndex]);
+            let image_prop = copute_image_prop(imgArr[imgIndex]);
             previewImg(image_prop);
         } else {
-            var max_num = imgNum - g.navItemNum;
+            let max_num = imgNum - g.navItemNum;
             moveIndex++;
             if (moveIndex >= max_num) {
                 moveIndex = max_num;
@@ -311,6 +308,9 @@
      * 预览图片
      */
     function previewImg(image_prop) {
+        if (typeof image_prop === "undefined") {
+            return
+        }
         previewBoxImg.attr("src", image_prop[0]);
         mainImg.attr("src", image_prop[0])
             .css({
@@ -339,17 +339,24 @@
      * @param url
      * @param callback
      */
-    function getImageWidth(url, callback) {
-        var img = new Image();
+    function getImageSize(url, callback) {
+        let img = new Image();
         img.src = url;
 
         // 如果图片被缓存，则直接返回缓存数据
-        if (img.complete) {
-            callback(img.width, img.height);
-        } else {
-            // 完全加载完毕的事件
-            img.onload = function () {
+        if (typeof callback !== "undefined") {
+            if (img.complete) {
                 callback(img.width, img.height);
+            } else {
+                // 完全加载完毕的事件
+                img.onload = function () {
+                    callback(img.width, img.height);
+                }
+            }
+        } else {
+            return {
+                width: img.width,
+                height: img.height
             }
         }
     }
@@ -362,21 +369,22 @@
      * @returns {Array}
      */
     function copute_image_prop(image, width, height) {
-        var src;
-        var res = [];
+        let src;
+        let res = [];
 
-        if (typeof image == "string") {
+        if (typeof image === "string") {
             src = image;
         } else {
             src = image.attr("src");
-            width = image.width();
-            height = image.height();
+            let size = getImageSize(src);
+            width = size.width;
+            height = size.height;
         }
 
         res[0] = src;
         res[1] = width;
         res[2] = height;
-        var img_scale = res[1] / res[2];
+        let img_scale = res[1] / res[2];
 
         if (img_scale === 1) {
             res[3] = boxHeight;//width

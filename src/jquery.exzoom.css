@@ -1,63 +1,43 @@
-@charset "utf-8";
-.exzoom {
-    /*overflow: hidden;*/
-}
-
 .exzoom .exzoom_img_box {
-    background: #eee;
-}
-
-.exzoom .exzoom_img_box .exzoom_main_img {
-    display: block;
-}
-
-.exzoom .exzoom_img_box span {
-    background: url(whitebg.png) repeat;
-}
+  background: #eee;
+  overflow: hidden; }
+  .exzoom .exzoom_img_box .exzoom_main_img {
+    display: block; }
+  .exzoom .exzoom_img_box span {
+    background: url(whitebg.png) repeat; }
 
 .exzoom .exzoom_preview {
-    margin: 0;
-    position: absolute;
-    overflow: hidden;
-    z-index: 999;
-    background-color: #fff;
-}
-
-.exzoom .exzoom_preview img {
+  margin: 0;
+  position: absolute;
+  overflow: hidden;
+  z-index: 999;
+  background-color: #fff; }
+  .exzoom .exzoom_preview img {
     position: relative;
-}
+    max-width: initial !important;
+    max-height: initial !important; }
 
 .exzoom .exzoom_nav {
-    left: 25px;
-    margin-top: 10px;
-    overflow: hidden;
-    position: relative;
-}
-
-.exzoom .exzoom_nav span {
+  left: 25px;
+  margin-top: 10px;
+  overflow: hidden;
+  position: relative; }
+  .exzoom .exzoom_nav span {
     border: 1px solid #ddd;
     float: left;
     overflow: hidden;
-    position: relative;
-}
-
-.exzoom .exzoom_nav span.current {
-    border: 1px solid #f60;
-}
-
-.exzoom .exzoom_nav img {
+    position: relative; }
+  .exzoom .exzoom_nav span.current {
+    border: 1px solid #f60; }
+  .exzoom .exzoom_nav img {
     max-width: 100%;
     max-height: 100%;
-    position: relative;
-}
+    position: relative; }
 
 .exzoom .exzoom_btn {
-    /*width: 400px;*/
-    position: relative;
-    margin: 0;
-}
-
-.exzoom .exzoom_btn a {
+  position: relative;
+  margin: 0; }
+  .exzoom .exzoom_btn a {
     display: block;
     width: 15px;
     border: 1px solid #ddd;
@@ -70,15 +50,10 @@
     left: 0;
     top: -62px;
     text-decoration: none;
-    color: #999;
-}
-
-.exzoom .exzoom_btn a.exzoom_next_btn {
-    left: auto;
-    right: 0;
-}
-
-.exzoom .exzoom_btn a:hover {
+    color: #999; }
+  .exzoom .exzoom_btn a:hover {
     background: #ccc;
-    color: #777;
-}
+    color: #777; }
+  .exzoom .exzoom_btn a.exzoom_next_btn {
+    left: auto;
+    right: 0; }
