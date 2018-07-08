@@ -18,23 +18,25 @@
 <body>
 
 <style>
-    #exzoom{
-		width:400px;
-	}
+    #exzoom {
+        width: 400px;
+        /*height: 400px;*/
+    }
 </style>
 
 <div class="exzoom" id="exzoom">
     <!--大图区域-->
     <div class="exzoom_img_box">
-        <img src="images/photos/img01.png"/>
-        <img src="images/photos/img02.png"/>
-        <img src="images/photos/img03.png"/>
-        <img src="images/photos/img04.png"/>
-        <img src="images/photos/img05.png"/>
-        <img src="images/photos/img06.png"/>
-        <img src="images/photos/img07.png"/>
-        <img src="images/photos/img08.png"/>
-        <img src="images/photos/img09.png"/>
+        <ul class='exzoom_img_ul'>
+            <li><img src="images/photos/img01.png"/></li>
+            <li><img src="images/photos/img02.png"/></li>
+            <li><img src="images/photos/img03.png"/></li>
+            <li><img src="images/photos/img04.png"/></li>
+            <li><img src="images/photos/img05.png"/></li>
+            <li><img src="images/photos/img06.png"/></li>
+            <li><img src="images/photos/img07.png"/></li>
+            <li><img src="images/photos/img08.png"/></li>
+        </ul>
     </div>
     <!--缩略图导航-->
     <div class="exzoom_nav"></div>
@@ -50,7 +52,9 @@
 <p>初始化后可以设置大图: $("#exzoom").exzoom("setImg", "http://www.jb51.net/images/logo.gif") </p>
 
 <script type="text/javascript">
-    $("#exzoom").exzoom();//方法调用，务必在加载完后执行
+    $("#exzoom").exzoom({
+        autoPlay: false,
+    });//方法调用，务必在加载完后执行
 </script>
 
 </body>
