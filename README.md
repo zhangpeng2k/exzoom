@@ -24,3 +24,6 @@ $("#exzoom").exzoom();
  ```javascript
  $("#exzoom").exzoom("setImg", "http://www.jb51.net/images/logo.gif");
 ```  
+
+# 注意
+本程序仅对个人非商业用途提供免费授权,详情请查看 LICENSE
